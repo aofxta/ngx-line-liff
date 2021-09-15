@@ -1,0 +1,20 @@
+{
+  "name": "ngx-line-liff",
+  "version": "0.0.1",
+  "description": "Authentication module for Angular. Supports authentication with LINE-LIFF. Can be extended to other providers also.",
+  "dependencies": {
+    "tslib": "^2.3.0"
+  },
+  "peerDependencies": {
+    "@angular/common": "^12.2.0",
+    "@angular/core": "^12.2.0",
+    "@line/liff": "^2.13.0"
+  },
+  "main": "bundles/ngx-line-liff.umd.js",
+  "module": "fesm2015/ngx-line-liff.js",
+  "es2015": "fesm2015/ngx-line-liff.js",
+  "esm2015": "esm2015/ngx-line-liff.js",
+  "fesm2015": "fesm2015/ngx-line-liff.js",
+  "typings": "ngx-line-liff.d.ts",
+  "sideEffects": false
+}
