@@ -1,6 +1,6 @@
 # Angular LINE LIFF
 
-> Use [Discussions](https://github.com/aofxta) for questions.
+> Use [Discussions](https://github.com/aofxta/ngx-line-liff/issues) for questions.
 
 Authentication module for Angular. Supports authentication with LINE-LIFF. Can be extended to other providers also.
 
@@ -26,33 +26,33 @@ In your `AppModule`, import the `SocialLoginModule`
 ```javascript
 ...
 import {
-	NgxLineLiffModule,
-	LineLiffLoginProvider,
-	LineLiffServiceConfig
+  NgxLineLiffModule,
+  LineLiffLoginProvider,
+  LineLiffServiceConfig
 } from 'ngx-line-liff';
 
 const ngxLiffConfig = <LineLiffServiceConfig>{
-	autoLogin: false,
-	providers: [
-		{
-			id: LineLiffLoginProvider.PROVIDER_ID,
-			provider: new LineLiffLoginProvider('channel_id', { liffId: 'liff_id' })
-		}
-	],
-	onError: (err: any) => console.log(err)
+  autoLogin: false,
+  providers: [
+    {
+      id: LineLiffLoginProvider.PROVIDER_ID,
+      provider: new LineLiffLoginProvider('channel_id', { liffId: 'liff_id' })
+    }
+  ],
+  onError: (err: any) => console.log(err)
 }
 
 @NgModule({
   declarations: [ ... ],
   imports: [
-		...
-		SocialLoginModule
+    ...
+    SocialLoginModule
   ],
   providers: [
-		{
-			provide: 'LineLiffServiceConfig',
-			useValue: ngxLiffConfig as LineLiffServiceConfig
-		}
+    {
+      provide: 'LineLiffServiceConfig',
+      useValue: ngxLiffConfig as LineLiffServiceConfig
+    }
   ],
   bootstrap: [...]
 })
@@ -72,18 +72,18 @@ import { NgxLineLiffService } from 'ngx-line-liff';
 })
 export class DemoComponent implements OnInit {
 
-	constructor(private auth: NgxLineLiffService) { }
+  constructor(private auth: NgxLineLiffService) { }
 
-	statusLogined(): void {
-		this.ngxLineLiff.getLoginStatus();
-	}
-	authLogin(): void {
-		//-- this.ngxLineLiff.signIn();
-		this.ngxLineLiff.signIn({ redirectUri: window.location.href });
-	}
-	authLogout(): void {
-		this.ngxLineLiff.signOut();
-	}
+  statusLogined(): void {
+    this.ngxLineLiff.getLoginStatus();
+  }
+  authLogin(): void {
+    //-- this.ngxLineLiff.signIn();
+    this.ngxLineLiff.signIn({ redirectUri: window.location.href });
+  }
+  authLogout(): void {
+    this.ngxLineLiff.signOut();
+  }
 }
 ```
 
@@ -102,17 +102,17 @@ import { NgxLineLiffService, LineProfile } from 'ngx-line-liff';
 })
 export class DemoComponent implements OnInit {
 
-	user: LineProfile;
-	loggedIn: boolean;
+  user: LineProfile;
+  loggedIn: boolean;
 
-	constructor(private auth: NgxLineLiffService) { }
+  constructor(private auth: NgxLineLiffService) { }
 
-	ngOnInit() {
-		this.auth.authState.subscribe(user => {
-			this.user = user;
-			this.loggedIn = (user != null);
-		});
-	}
+  ngOnInit() {
+    this.auth.authState.subscribe(user => {
+      this.user = user;
+      this.loggedIn = (user != null);
+    });
+  }
 }
 ```
 
@@ -121,7 +121,7 @@ export class DemoComponent implements OnInit {
 ```html
 <img src="{{ user.pictureUrl }}">
 <div>
-	<h4>{{ user.displayName }}</h4>
-	<p>{{ user.statusMessage }}</p>
+  <h4>{{ user.displayName }}</h4>
+  <p>{{ user.statusMessage }}</p>
 </div>
 ```
